@@ -1,0 +1,80 @@
+#include <iostream>
+using namespace std;
+class Human{
+    std::string m_name;
+    std::string set_name(){
+        return this->m_name;
+    }
+public:
+    int m_age;
+    Human(std::string name,int age){
+        this->m_name=name;
+        this->m_age=age;
+    }
+    ~Human(){
+        cout<<"hello";
+    }
+
+protected:
+    void set_age(){
+        cout<< this->m_name<<"\n";
+    }
+};
+class Build{
+    int m_test;
+    void print_esim(){
+        cout<<"esim";
+    }
+
+protected:
+    void hello(){
+        cout<<"esim";
+    }
+
+public:
+    void print_ok(int a,int b){
+        for(int i=a;i<=b;i++)
+            cout<<i*i<<"\n";
+        if(b%2==0)
+            cout<<b*b;
+        else
+            cout<<(b-1)*(b-1);
+        b=this->m_test;
+    }
+    Build(int test){
+        this->m_test;
+    }
+    ~Build(){
+        cout<<"hello"<<"\n";
+    }
+};
+class Student:public Human,public Build{
+    int m_height;
+    int set_height(){
+        return this->m_height;
+    }
+
+public:
+    std::string m_eye_color;
+    Student(int test,int height,std::string eye_color,std::string nam,int ag): Build(test), Human(nam,ag){
+        this->m_height=height;
+        this->m_eye_color=eye_color;
+    }
+    ~Student(){
+        cout<<"vsyo"<<"\n";
+    }
+    void print_eye_color(){
+        cout<<this->set_height()<<"\n";
+    }
+    void print(){
+        this->set_age();
+    }
+};
+
+int main()
+{
+Build a(1);
+a.print_ok(1,5);
+
+    return 0;
+}
